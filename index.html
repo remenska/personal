@@ -3,49 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles1.css">
-    <title>Your Name - Personal Branding</title>
+    <title>Daniela Remenska, PhD Computer Science, EngD Software Technology</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 1px solid #00ff00;
+            position: absolute;
+            width: 100%;
+            top: 0;
+            z-index: 1;
+        }
+
+        section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin: 20px;
+            z-index: 0;
+        }
+
+        section img {
+            max-height: 8cm;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            border-top: 1px solid #00ff00;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            z-index: 1;
+        }
+    </style>
 </head>
 <body>
 
     <header>
-        <h1>Your Name</h1>
-        <p>title</p>
+        <h1 style="font-size: 2.5em; margin-bottom: 10px;">Daniela Remenska</h1>
+        <p style="font-size: 1.2em; margin: 0;">PhD Computer Science, EngD Software Technology</p>
     </header>
 
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+    <section>
+        <img src="daan.jpg" alt="Profile Image">
+        <h2 style="font-size: 2em;">Welcome!</h2>
 
-    <section id="home">
-        <h2>Placeholder</h2>
-    </section>
-
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Share a brief description of yourself and your background.</p>
-    </section>
-
-    <section id="portfolio">
-        <h2>Portfolio</h2>
-        <p>Showcase your work or projects here.</p>
-    </section>
-
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p><img src="contact.png"></p>
     </section>
 
     <footer>
-        <p>&copy; 2023 Your Name</p>
+
     </footer>
 
 </body>
 </html>
-
 
