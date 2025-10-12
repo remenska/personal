@@ -22,14 +22,14 @@
       font-family: var(--font-family);
       background-color: var(--body-bg);
       color: var(--text-color);
-      margin-bottom: 150px; /* space for fixed footer */
+      margin-bottom: 150px; /* space for fixed footer on desktop */
     }
 
     header {
       background-color: var(--header-bg);
       color: #ffffff;
       text-align: center;
-      padding: 50px 0; /* larger header height */
+      padding: 50px 0;
       border-bottom: 2px solid var(--accent-color);
     }
     header h1 {
@@ -55,7 +55,7 @@
       background-color: var(--section-bg);
       text-align: center;
       padding: 30px;
-      min-height: 60vh; /* reduce white space by filling more screen */
+      min-height: 60vh;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -102,9 +102,9 @@
 
     footer {
       background-color: var(--header-bg);
-      color: #ffffff; /* white text in footer */
+      color: #ffffff;
       text-align: center;
-      padding: 80px 0; /* larger footer height */
+      padding: 80px 0;
       border-top: 2px solid var(--accent-color);
       position: fixed;
       bottom: 0;
@@ -114,27 +114,27 @@
     }
     footer p { margin: 0; }
 
+    /* Mobile layout: show header and footer immediately */
     @media (max-width: 600px) {
-      nav a {
-        display: block;
-        margin: 8px 0;
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        margin-bottom: 0;        /* no extra space at bottom on mobile */
       }
-      .hero {
-        min-height: 50vh;
-        padding: 15px 10px;
-      }
-      .hero img {
-        width: 150px;
-        height: 150px;
-      }
-      section {
-        padding: 20px 10px;
+      header {
+        flex-shrink: 0;
       }
       footer {
-        position: static;
-        margin-top: 40px;
+        position: static;        /* not fixed on small screens */
+        flex-shrink: 0;
+        margin-top: 0;
+        padding: 60px 0;         /* still gives ample height */
       }
-      body { margin-bottom: 0; }
+      .hero {
+        flex: 1 0 auto;
+        min-height: auto;        /* allows hero to shrink if needed */
+      }
     }
   </style>
 </head>
@@ -170,7 +170,7 @@
     <h2>Experience</h2>
     <div class="content">
       <h3>Technical Engineering Manager | Tech Lead | Software Engineer – eBay / Adevinta / Marktplaats</h3>
-      <p>Nov&nbsp;2016 – Present &nbsp;·&nbsp; 9 yrs &nbsp;·&nbsp; Amsterdam Area, Netherlands</p>
+      <p>Nov 2016 – Present · 9 yrs · Amsterdam Area, Netherlands</p>
       <p>
         I’ve been part of the same product and team through several company changes, from eBay Classifieds to Adevinta and now Marktplaats. We build and run a first-party advertising platform that serves our marketplaces.
       </p>
@@ -180,13 +180,13 @@
       </p>
 
       <h3>eScience Engineer – Netherlands eScience Center</h3>
-      <p>Jun&nbsp;2015 – Oct&nbsp;2016 &nbsp;·&nbsp; 1 yr 5 mos &nbsp;·&nbsp; Amsterdam Area, Netherlands</p>
+      <p>Jun 2015 – Oct 2016 · 1 yr 5 mos · Amsterdam Area, Netherlands</p>
       <p>
         I worked on software projects in particle physics and environmental modeling, collaborating with researchers from academia and public research institutes. My main focus was developing tools for optimized data handling and efficient computing in particle physics, as well as building modeling software for the Netherlands Environmental Assessment Agency (PBL). Several of the projects I contributed to led to published research in both scientific computing and environmental modeling.
       </p>
 
-      <h3>NIKHEF &amp; Vrije Universiteit Amsterdam (VU Amsterdam)</h3>
-      <p>2010 – Feb&nbsp;2016</p>
+      <h3>NIKHEF & Vrije Universiteit Amsterdam (VU Amsterdam)</h3>
+      <p>2010 – Feb 2016</p>
       <p>
         While completing my PhD in computer science, I worked at the National Institute for Subatomic Physics (NIKHEF) developing data management and grid computing solutions for the LHCb experiment at CERN. My research focused on automating verification of distributed software designs and bridging the gap between software engineering and fundamental CS research. This period sharpened my interest in robust distributed systems.
       </p>
@@ -198,7 +198,7 @@
       </p>
 
       <h3>Java Software Developer – MAK‑System, Republic of North Macedonia</h3>
-      <p>Feb&nbsp;2007 – Sep&nbsp;2008</p>
+      <p>Feb 2007 – Sep 2008</p>
       <p>
         Developed and maintained eRiskLine using Java Servlets and JSP pages, a software solution for collecting incident and risk information in healthcare settings. Gained early experience in production systems and learned the value of good design and pragmatic delivery.
       </p>
