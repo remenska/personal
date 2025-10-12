@@ -1,85 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daniela Remenska, PhD Computer Science | EngD Software Technology</title>
-    <style>
-        body {
-            font-family: 'Courier New', Courier, monospace;
-            margin: 0;
-            padding: 0;
-            background-color: #fff;
-            color: #333;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            flex-direction: column;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daniela Remenska | Technical Engineering Manager</title>
+  <style>
+    :root {
+      /* original dark header and neon green accent */
+      --header-bg: #333333;
+      --accent-color: #00ff00;
+      --body-bg: #f8f8f8;
+      --section-bg: #ffffff;
+      --text-color: #333333;
+      --font-family: "Courier New", Courier, monospace;
+      --max-width: 900px;
+    }
 
-        header {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 30px 0;
-            border-bottom: 2px solid #00ff00;
-            position: absolute;
-            width: 100%;
-            top: 0;
-            z-index: 1;
-        }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: var(--font-family);
+      background-color: var(--body-bg);
+      color: var(--text-color);
+      margin-bottom: 150px; /* space for fixed footer */
+    }
 
-        section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            margin: 20px;
-            z-index: 0;
-        }
+    header {
+      background-color: var(--header-bg);
+      color: #ffffff;
+      text-align: center;
+      padding: 50px 0; /* larger header height */
+      border-bottom: 2px solid var(--accent-color);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.2em;
+    }
+    header p {
+      margin: 5px 0 0 0;
+      font-size: 1.1em;
+      color: #cccccc;
+    }
+    nav { margin-top: 10px; }
+    nav a {
+      color: #cccccc;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 0.9em;
+      transition: color 0.2s ease;
+    }
+    nav a:hover { color: var(--accent-color); }
 
-        section img {
-            max-height: 8cm;
-            border-radius: 50%;
-            margin-bottom: 20px;
-        }
+    .hero {
+      background-color: var(--section-bg);
+      text-align: center;
+      padding: 30px;
+      min-height: 60vh; /* reduce white space by filling more screen */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--accent-color);
+    }
+    .hero .email {
+      margin-top: 10px;
+      font-size: 1em;
+      color: var(--header-bg);
+    }
+    .hero a {
+      display: inline-block;
+      margin-top: 15px;
+      color: var(--header-bg);
+      text-decoration: none;
+      border-bottom: 1px solid var(--header-bg);
+      padding-bottom: 2px;
+    }
+    .hero a:hover {
+      color: var(--accent-color);
+      border-bottom-color: var(--accent-color);
+    }
 
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 80px 0;
-            border-top: 2px solid #00ff00;
-            position: absolute;
-            width: 100%;
-            bottom: 0;
-            z-index: 1;
-        }
-    </style>
-    <!-- Google tag (gtag.js) --> 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-68L0V6VQKP"></script>
-    <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-68L0V6VQKP'); 
-    </script>
+    section {
+      background-color: var(--section-bg);
+      margin: 0 auto;
+      padding: 40px 20px;
+      max-width: var(--max-width);
+    }
+    section h2 {
+      font-size: 1.6em;
+      color: var(--header-bg);
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+    section .content { margin-top: 0; }
+
+    footer {
+      background-color: var(--header-bg);
+      color: #ffffff; /* white text in footer */
+      text-align: center;
+      padding: 80px 0; /* larger footer height */
+      border-top: 2px solid var(--accent-color);
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: 50;
+    }
+    footer p { margin: 0; }
+
+    @media (max-width: 600px) {
+      nav a {
+        display: block;
+        margin: 8px 0;
+      }
+      .hero {
+        min-height: 50vh;
+        padding: 15px 10px;
+      }
+      .hero img {
+        width: 150px;
+        height: 150px;
+      }
+      section {
+        padding: 20px 10px;
+      }
+      footer {
+        position: static;
+        margin-top: 40px;
+      }
+      body { margin-bottom: 0; }
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <h1 style="font-size: 2.5em; margin-bottom: 10px;">Daniela Remenska</h1>
-        <p style="font-size: 1.2em; margin: 0;">PhD Computer Science | EngD Software Technology</p>
-    </header>
+  <header>
+    <h1>Daniela Remenska</h1>
+    <p>PhD Computer Science | EngD Software Technology</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#publications">Research &amp; Code</a>
+      <a href="Remenska-CV.pdf">CV</a>
+    </nav>
+  </header>
 
-    <section>
-        <img src="daan_square.jpg" alt="Profile Image">
-        <img src="contact.png"></img>
-        <a href="Remenska-CV.pdf">CV/Resume</a> [last update January 2023]
-    </section>
+  <div class="hero">
+    <img src="profile.jpg" alt="Daniela Remenska portrait">
+    <p class="email">remenska at gmail.com</p>
+    <a href="Remenska-CV.pdf">CV / Resume</a>
+  </div>
 
-    <footer>
+  <section id="about">
+    <h2>About</h2>
+    <div class="content">
+      <p>
+        I care about building software that lasts and about teams that work well together. My path has taken me from research and scientific computing to many years of hands-on engineering and leadership for online marketplaces. Staying long enough on the same product taught me to notice complexity before it gets out of hand and to own my mistakes. I value practical solutions, honest communication and the craft of turning ideas into real, useful tools. I am open to new roles or collaborations, especially where technology addresses societal problems. I am not looking for another fintech gig or any position where the main goal is simply to maximise shareholder value.
+      </p>
+    </div>
+  </section>
 
-    </footer>
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="content">
+      <h3>Technical Engineering Manager | Tech Lead | Software Engineer – eBay / Adevinta / Marktplaats</h3>
+      <p>Nov&nbsp;2016 – Present &nbsp;·&nbsp; 9 yrs &nbsp;·&nbsp; Amsterdam Area, Netherlands</p>
+      <p>
+        I’ve been part of the same product and team through several company changes, from eBay Classifieds to Adevinta and now Marktplaats. We build and run a first-party advertising platform that serves our marketplaces.
+      </p>
+      <p>
+        I started as a backend engineer writing Go services and grew into a tech lead and engineering manager, often wearing multiple hats at once. I’ve worked on designing and scaling our systems, improving developer practices, and leading a cross-functional team focused on seller tools and advertising features. I am happiest working on tough technical problems, turning complex requirements into reliable software, and helping my team deliver solutions that are both practical and useful. 
+        I believe in learning from mistakes, staying hands-on, and keeping things as clear and simple as possible. My focus has been on building and maintaining systems that actually support our users and make a difference in their experience.I’ve been part of the same product and team through several company changes, from eBay Classifieds to Adevinta and now Marktplaats. We build and run a first-party advertising platform that serves our marketplaces. I started as a backend engineer writing Go services and grew into a tech lead and engineering manager, often wearing multiple hats at once. I’ve worked on designing and scaling our systems, improving developer practices, and leading a cross-functional team focused on seller tools and advertising features. I am happiest working on tough technical problems, turning complex requirements into reliable software, and helping my team deliver solutions that are both practical and useful. I believe in learning from mistakes, staying hands-on, and keeping things as clear and simple as possible. My focus has been on building and maintaining systems that actually support our users and make a difference in their experience.
+      </p>
+
+      <h3>eScience Engineer – Netherlands eScience Center</h3>
+      <p>Jun&nbsp;2015 – Oct&nbsp;2016 &nbsp;·&nbsp; 1 yr 5 mos &nbsp;·&nbsp; Amsterdam Area, Netherlands</p>
+      <p>
+        I worked on software projects in particle physics and environmental modeling, collaborating with researchers from academia and public research institutes. My main focus was developing tools for optimized data handling and efficient computing in particle physics, as well as building modeling software for the Netherlands Environmental Assessment Agency (PBL). Several of the projects I contributed to led to published research in both scientific computing and environmental modeling.
+      </p>
+
+      <h3>NIKHEF &amp; Vrije Universiteit Amsterdam (VU Amsterdam)</h3>
+      <p>2010 – Feb&nbsp;2016</p>
+      <p>
+        While completing my PhD in computer science, I worked at the National Institute for Subatomic Physics (NIKHEF) developing data management and grid computing solutions for the LHCb experiment at CERN. My research focused on automating verification of distributed software designs and bridging the gap between software engineering and fundamental CS research. This period sharpened my interest in robust distributed systems.
+      </p>
+
+      <h3>Engineering Doctorate (EngD) – Eindhoven University of Technology</h3>
+      <p>2008 – 2010</p>
+      <p>
+        Completed a two-year EngD in Software Technology, combining advanced coursework with industry projects. Worked with companies such as ViNotion, FEI and NIKHEF on real-time and data-heavy systems. This programme reinforced my ability to translate vague requirements into working software.
+      </p>
+
+      <h3>Java Software Developer – MAK‑System, Republic of North Macedonia</h3>
+      <p>Feb&nbsp;2007 – Sep&nbsp;2008</p>
+      <p>
+        Developed and maintained eRiskLine using Java Servlets and JSP pages, a software solution for collecting incident and risk information in healthcare settings. Gained early experience in production systems and learned the value of good design and pragmatic delivery.
+      </p>
+    </div>
+  </section>
+
+  <section id="publications">
+    <h2>Research &amp; Code</h2>
+    <div class="content">
+      <p>Some highlights from my published research and open source work.</p>
+      <ul>
+        <li>
+          <strong>Research publications</strong>: I have co‑authored peer reviewed papers across grid computing, scientific data workflows and distributed verification. For a complete list of publications please see my <a href="https://scholar.google.com/citations?user=JGCWSdgAAAAJ&hl=en" target="_blank">Google Scholar profile</a>.
+        </li>
+        <li>
+          <strong>Open source &amp; code</strong>: My focus on industry work has put a pause on public and open source contributions, but you can still explore work from my earlier career on my <a href="https://github.com/remenska" target="_blank">GitHub page</a>.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <p>Website crafted with a touch of generative AI guidance.</p>
+  </footer>
 
 </body>
 </html>
-
