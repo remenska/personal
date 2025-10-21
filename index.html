@@ -71,7 +71,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       max-width: 1100px;
       margin: 0 auto;
     }
@@ -86,9 +86,9 @@
     }
     .hero-text h1 {
       margin: 0;
-      font-size: 4rem;
+      font-size: 3.8rem;
       font-weight: bold;
-      line-height: 1.1;
+      line-height: 1.2;
     }
     .hero-text h2 {
       margin: 10px 0 20px;
@@ -126,6 +126,101 @@
     }
     .hero-buttons .research {
       background-color: #19b3b1; /* teal */
+    }
+
+    /* Intro paragraph in hero */
+    .hero-intro {
+      font-size: 1.1rem;
+      color: #555;
+      max-width: 420px;
+      margin-top: 20px;
+      line-height: 1.5;
+    }
+
+    .hero-subtitle {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #444;
+    }
+
+    /* Top header styling */
+    .top-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      background-color: #f5f5f5;
+      border-bottom: 1px solid #e5e5e5;
+      z-index: 99;
+    }
+    .branding {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      font-size: 1rem;
+    }
+    .branding .bullet {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: #f6ae2d;
+    }
+    .branding .name {
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #333;
+    }
+    .branding .title {
+      font-size: 0.9rem;
+      color: #777;
+    }
+    .top-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .top-links a {
+      color: #444;
+      text-decoration: none;
+      font-size: 0.95rem;
+      padding: 4px 8px;
+      position: relative;
+    }
+    .top-links a + a::before {
+      content: '';
+      position: absolute;
+      left: -10px;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background-color: #ccc;
+    }
+
+    /* Layout adjustments for fixed header */
+    body {
+      padding-top: 64px;
+    }
+
+    /* Responsive behavior: hide top links and show menu on small screens */
+    @media (max-width: 900px) {
+      .top-links {
+        display: none;
+      }
+      .menu-icon {
+        display: block;
+      }
+    }
+    @media (min-width: 901px) {
+      .menu-icon {
+        display: none;
+      }
     }
 
     /* Section styles */
@@ -246,14 +341,28 @@
   </script>
 </head>
 <body>
-  <!-- Hamburger icon for navigation -->
-  <div class="menu-icon" onclick="toggleNav()">&#9776;</div>
-  <!-- Slide‑out navigation panel -->
+  <!-- Top header with name and role -->
+  <header class="top-header">
+    <div class="branding">
+      <span class="bullet"></span>
+      <span class="name">Daniela Remenska</span>
+      <span class="title">Engineering Lead</span>
+    </div>
+    <nav class="top-links">
+      <a href="Remenska-CV.pdf" target="_blank">Resume</a>
+      <a href="#experience">Experience</a>
+      <a href="#about">About</a>
+      <a href="#research">Research &amp; Code</a>
+    </nav>
+    <div class="menu-icon" onclick="toggleNav()">&#9776;</div>
+  </header>
+
+  <!-- Slide‑out navigation panel for mobile -->
   <nav id="sideNav">
     <a href="#hero" onclick="toggleNav()">Home</a>
     <a href="#about" onclick="toggleNav()">About</a>
     <a href="#experience" onclick="toggleNav()">Experience</a>
-    <a href="#research" onclick="toggleNav()">Research & Code</a>
+    <a href="#research" onclick="toggleNav()">Research &amp; Code</a>
     <a href="Remenska-CV.pdf" onclick="toggleNav()">Resume</a>
   </nav>
 
@@ -264,8 +373,10 @@
         <img src="profile.jpg" alt="Daniela Remenska portrait">
       </div>
       <div class="hero-text">
+        <!-- Greeting and brief introduction following the Wix template style -->
         <h1>Hello</h1>
-        <h2>Daniela Remenska</h2>
+        <h3 class="hero-subtitle">A Bit About Me</h3>
+        <p class="hero-intro">I care about building software that lasts and about teams that work well together.</p>
         <div class="hero-buttons">
           <a href="#experience" class="experience">Experience</a>
           <a href="#about" class="about">About</a>
