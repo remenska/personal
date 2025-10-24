@@ -1,13 +1,3 @@
-<!--
-  This page is a custom portfolio site inspired by Wix template 2846.  It retains
-  all of the user's original content verbatim but adapts the structure and
-  styling to mirror the clean, modern aesthetic of the template.  The hero
-  section features a circular portrait, a friendly greeting, and three
-  colorful buttons that lead to the major sections of the page.  A
-  hamburger menu sits in the top-right corner and toggles a slide-out
-  navigation panel.  Following the hero, you will find an "About" section,
-  a vertical timeline for work experience, and a research & code section.
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,333 +5,178 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Daniela Remenska | Portfolio</title>
   <style>
-    /* Base resets and typography */
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: 'Arial', sans-serif;
-      background-color: #f5f5f5; /* light off‑white background to match the template */
-      color: #262626;
-    }
-
-    /* Hamburger menu icon */
-    .menu-icon {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      font-size: 2rem;
-      cursor: pointer;
-      z-index: 101;
-      color: #333;
-    }
-
-    /* Slide-out navigation panel */
-    #sideNav {
-      height: 100%;
-      width: 0;
-      position: fixed;
-      top: 0;
-      right: 0;
-      z-index: 100;
-      background-color: rgba(0, 0, 0, 0.9);
-      overflow-x: hidden;
-      transition: width 0.4s ease;
-      padding-top: 60px;
-    }
-    #sideNav a {
-      display: block;
-      padding: 12px 32px;
-      text-decoration: none;
-      font-size: 1.2rem;
-      color: #eee;
-      transition: color 0.3s;
-    }
-    #sideNav a:hover {
-      color: #f6ae2d;
-    }
-
-    /* Hero section */
-    .hero {
-      background-color: #f3f3f3; /* slightly darker grey behind the hero */
-      padding: 60px 20px;
-    }
-    .hero-content {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: nowrap;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .hero-img img {
-      width: 300px;
-      height: 300px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 8px solid #ffffff;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      margin-right: 50px;
-    }
-    .hero-text h1 {
-      margin: 0;
-      font-size: 3.8rem;
-      font-weight: bold;
-      line-height: 1.2;
-    }
-    .hero-text h2 {
-      margin: 10px 0 20px;
-      font-size: 2.2rem;
-      font-weight: 600;
-      color: #555;
-    }
-    .hero-buttons {
-      display: flex;
-      gap: 20px;
-      margin-top: 30px;
-    }
-    .hero-buttons a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      color: #fff;
-      font-size: 1rem;
-      font-weight: 600;
-      text-decoration: none;
-      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
-      transition: transform 0.25s;
-    }
-    .hero-buttons a:hover {
-      transform: scale(1.05);
-    }
-    .hero-buttons .experience {
-      background-color: #f6ae2d; /* golden yellow */
-    }
-    .hero-buttons .about {
-      background-color: #ef4e67; /* coral red */
-    }
-    .hero-buttons .research {
-      background-color: #19b3b1; /* teal */
-    }
-
-    /* Intro paragraph in hero */
-    .hero-intro {
-      font-size: 1.1rem;
-      color: #555;
-      max-width: 420px;
-      margin-top: 20px;
-      line-height: 1.5;
-    }
-
-    .hero-subtitle {
-      margin-top: 10px;
-      margin-bottom: 10px;
-      font-size: 1.6rem;
-      font-weight: 600;
-      color: #444;
-    }
-
-    /* Top header styling */
-    .top-header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 20px;
       background-color: #f5f5f5;
-      border-bottom: 1px solid #e5e5e5;
-      z-index: 99;
-    }
-    .branding {
-      display: flex;
-      align-items: baseline;
-      gap: 8px;
-      font-size: 1rem;
-    }
-    .branding .bullet {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background-color: #f6ae2d;
-    }
-    .branding .name {
-      font-weight: 600;
-      font-size: 1.1rem;
-      color: #333;
-    }
-    .branding .title {
-      font-size: 0.9rem;
-      color: #777;
-    }
-    .top-links {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-    .top-links a {
-      color: #444;
-      text-decoration: none;
-      font-size: 0.95rem;
-      padding: 4px 8px;
-      position: relative;
-    }
-    .top-links a + a::before {
-      content: '';
-      position: absolute;
-      left: -10px;
-      top: 0;
-      bottom: 0;
-      width: 1px;
-      background-color: #ccc;
-    }
-
-    /* Layout adjustments for fixed header */
-    body {
+      color: #262626;
       padding-top: 64px;
     }
 
-    /* Responsive behavior: hide top links and show menu on small screens */
-    @media (max-width: 900px) {
-      .top-links {
-        display: none;
-      }
-      .menu-icon {
-        display: block;
-      }
-    }
-    @media (min-width: 901px) {
-      .menu-icon {
-        display: none;
-      }
+    .menu-icon {
+      position: fixed; top: 20px; right: 20px;
+      font-size: 2rem; cursor: pointer; z-index: 101; color: #333;
     }
 
-    /* Section styles */
-    section {
-      padding: 80px 20px;
-      max-width: 900px;
-      margin: 0 auto;
+    #sideNav {
+      height: 100%; width: 0; position: fixed; top: 0; right: 0; z-index: 100;
+      background-color: rgba(0,0,0,0.9); overflow-x: hidden; transition: width 0.4s ease; padding-top: 60px;
     }
-    section h2 {
-      font-size: 2.5rem;
-      margin-bottom: 30px;
+    #sideNav a {
+      display: block; padding: 12px 32px; text-decoration: none; font-size: 1.2rem; color: #eee; transition: color 0.3s;
+    }
+    #sideNav a:hover { color: #f6ae2d; }
+
+    .hero { background-color: #f3f3f3; padding: 60px 20px; }
+    .hero-content { display: flex; align-items: center; justify-content: center; flex-wrap: nowrap; max-width: 1100px; margin: 0 auto; }
+    .hero-img img {
+      width: 300px; height: 300px; border-radius: 50%; object-fit: cover;
+      border: 1px solid #000; /* thin black border instead of white+shadow */
+      margin-right: 50px;
+    }
+    .hero-text h1 { margin: 0; font-size: 3.8rem; font-weight: bold; line-height: 1.2; }
+    .hero-text h2 { margin: 10px 0 20px; font-size: 2.2rem; font-weight: 600; color: #555; }
+    .hero-buttons { display: flex; gap: 20px; margin-top: 30px; }
+    .hero-buttons a {
+      position: relative;
+      display: flex; align-items: center; justify-content: center;
+      width: 140px; height: 140px; border-radius: 50%;
+      font-size: 1rem; font-weight: 600; text-decoration: none;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+      transition: transform 0.25s;
+      border: 1px solid #000;
+      color: #000;
+      padding: 12px;
       text-align: center;
     }
-    #about p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
-
-    /* Timeline for experience */
-    .timeline {
-      position: relative;
-      margin-top: 40px;
-      padding-left: 20px;
-    }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 20px;
-      top: 0;
-      width: 2px;
-      height: 100%;
-      background: #e0e0e0;
-    }
-    .timeline-item {
-      position: relative;
-      margin-bottom: 40px;
-      padding-left: 40px;
-    }
-    .timeline-item:last-child {
-      margin-bottom: 0;
-    }
-    .timeline-item .circle {
-      position: absolute;
-      top: 0;
-      left: 12px;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
+    .hero-buttons a:hover { transform: scale(1.05); }
+    .hero-buttons .experience { background-color: #f6ae2d; }
+    .hero-buttons .about { background-color: #ef4e67; }
+    .hero-buttons .research {
       background-color: #19b3b1;
+      color: transparent;
     }
-    .timeline-item h3 {
-      margin: 0;
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: #333;
-    }
-    .timeline-item .date {
-      font-size: 0.95rem;
-      color: #888;
-      margin: 4px 0 8px;
-    }
-    .timeline-item p {
-      font-size: 1rem;
-      line-height: 1.5;
-      margin: 0;
+    .hero-buttons .research::after {
+      content: "Research &\A Code";
+      white-space: pre;
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      padding: 16px;
+      line-height: 1.2;
+      color: #000;
+      text-align: center;
     }
 
-    /* Research & Code section */
-    #research ul {
-      list-style: none;
-      padding-left: 0;
-    }
-    #research li {
-      margin-bottom: 15px;
-      font-size: 1rem;
-    }
-    #research a {
-      color: #19b3b1;
-      text-decoration: none;
-    }
-    #research a:hover {
-      text-decoration: underline;
-    }
+    .hero-intro { font-size: 1.1rem; color: #555; max-width: 420px; margin-top: 20px; line-height: 1.5; }
+    .hero-subtitle { margin-top: 10px; margin-bottom: 10px; font-size: 1.6rem; font-weight: 600; color: #444; }
 
-    /* Responsive adjustments */
+    .top-header {
+      position: fixed; top: 0; left: 0; width: 100%; height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 20px; background-color: #f5f5f5; border-bottom: 1px solid #e5e5e5; z-index: 99;
+    }
+    .branding { display: flex; align-items: baseline; gap: 8px; font-size: 1rem; }
+    .branding .bullet { width: 12px; height: 12px; border-radius: 50%; background-color: #f6ae2d; }
+    .branding .name { font-weight: 600; font-size: 1.1rem; color: #333; }
+    .branding .title { font-size: 0.9rem; color: #777; }
+    .top-links { display: flex; align-items: center; gap: 20px; }
+    .top-links a { color: #444; text-decoration: none; font-size: 0.95rem; padding: 4px 8px; position: relative; }
+    .top-links a + a::before { content: ''; position: absolute; left: -10px; top: 0; bottom: 0; width: 1px; background-color: #ccc; }
+
     @media (max-width: 900px) {
-      .hero-content {
-        flex-direction: column;
-        text-align: center;
-      }
-      .hero-img img {
-        margin-right: 0;
-        margin-bottom: 20px;
-        width: 240px;
-        height: 240px;
-      }
-      .hero-buttons {
-        justify-content: center;
-        flex-wrap: wrap;
-      }
-      .hero-buttons a {
-        width: 100px;
-        height: 100px;
-        font-size: 0.9rem;
-      }
+      .top-links { display: none; }
+      .menu-icon { display: block; }
+      .hero-content { flex-direction: column; text-align: center; }
+      .hero-img img { margin-right: 0; margin-bottom: 20px; width: 240px; height: 240px; }
+      .hero-buttons { justify-content: center; flex-wrap: wrap; }
+      .hero-buttons a { width: 100px; height: 100px; font-size: 0.9rem; }
+      .hero-buttons .research::after { padding: 10px; line-height: 1.1; }
     }
+    @media (min-width: 901px) { .menu-icon { display: none; } }
+
+    section { padding: 80px 20px; max-width: 900px; margin: 0 auto; }
+    section h2 { font-size: 2.5rem; margin-bottom: 30px; text-align: center; }
+    #about p { font-size: 1.1rem; line-height: 1.6; }
+
+    .timeline { position: relative; margin-top: 40px; padding-left: 20px; }
+    .timeline::before { content: ''; position: absolute; left: 20px; top: 0; width: 2px; height: 100%; background: #e0e0e0; }
+    .timeline-item { position: relative; margin-bottom: 40px; padding-left: 40px; }
+    .timeline-item:last-child { margin-bottom: 0; }
+    .timeline-item .circle {
+      position: absolute; top: 0; left: 12px; width: 16px; height: 16px; border-radius: 50%; background-color: #19b3b1;
+      border: 1px solid #000;
+    }
+    .timeline-item h3 { margin: 0; font-size: 1.4rem; font-weight: 600; color: #333; }
+    .timeline-item .date { font-size: 0.95rem; color: #888; margin: 4px 0 8px; }
+    .timeline-item p { font-size: 1rem; line-height: 1.5; margin: 0; }
+
+    #research ul { list-style: none; padding-left: 0; }
+    #research li { margin-bottom: 15px; font-size: 1rem; }
+    #research a { color: #19b3b1; text-decoration: none; }
+    #research a:hover { text-decoration: underline; }
   </style>
   <script>
-    // Toggle the side navigation menu
     function toggleNav() {
       const nav = document.getElementById('sideNav');
-      if (nav.style.width === '260px') {
-        nav.style.width = '0';
-      } else {
-        nav.style.width = '260px';
-      }
+      nav.style.width = (nav.style.width === '260px') ? '0' : '260px';
     }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const monthMap = {
+        jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5,
+        jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, dec: 11
+      };
+
+      const parseToken = (tok, isEnd = false) => {
+        const t = tok.trim();
+        if (!t || /^present$/i.test(t)) return new Date();
+        const parts = t.split(/\s+/);
+        if (parts.length === 1) {
+          const y = parseInt(parts[0], 10);
+          if (isNaN(y)) return null;
+          return isEnd ? new Date(y, 11, 1) : new Date(y, 0, 1);
+        } else {
+          const m = monthMap[parts[0].slice(0, 3).toLowerCase()];
+          const y = parseInt(parts[1], 10);
+          if (m == null || isNaN(y)) return null;
+          return new Date(y, m, 1);
+        }
+      };
+
+      const diffToLabel = (start, end) => {
+        if (!start || !end) return '';
+        let months = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
+        if (months < 0) months = 0;
+        const years = Math.floor(months / 12);
+        const rem = months % 12;
+        const yPart = years > 0 ? `${years} year${years === 1 ? '' : 's'}` : '';
+        const mPart = rem > 0 ? `${rem} month${rem === 1 ? '' : 's'}` : '';
+        return [yPart, mPart].filter(Boolean).join(' ');
+      };
+
+      document.querySelectorAll('.timeline .timeline-item .date').forEach(el => {
+        const original = el.textContent.trim();
+        const parts = original.split('·').map(s => s.trim());
+        if (parts.length === 0) return;
+        const range = parts[0];
+        const rest = parts.slice(1);
+        const rangeSplit = range.split(/\s*[–-]\s*/);
+        if (rangeSplit.length !== 2) return;
+        const startTok = rangeSplit[0];
+        const endTok = rangeSplit[1];
+        const start = parseToken(startTok, false);
+        const end = parseToken(endTok, true);
+        const label = diffToLabel(start, end);
+        if (!label) return;
+        const looksLikeDuration = rest.length && /\b(year|month)/i.test(rest[0]);
+        const newRest = looksLikeDuration ? [label, ...rest.slice(1)] : (label ? [label, ...rest] : rest);
+        el.textContent = [range, ...newRest].join(' · ');
+      });
+    });
   </script>
 </head>
 <body>
-  <!-- Top header with name and role -->
   <header class="top-header">
     <div class="branding">
       <span class="bullet"></span>
@@ -357,7 +192,6 @@
     <div class="menu-icon" onclick="toggleNav()">&#9776;</div>
   </header>
 
-  <!-- Slide‑out navigation panel for mobile -->
   <nav id="sideNav">
     <a href="#hero" onclick="toggleNav()">Home</a>
     <a href="#about" onclick="toggleNav()">About</a>
@@ -366,14 +200,12 @@
     <a href="Remenska-CV.pdf" onclick="toggleNav()">Resume</a>
   </nav>
 
-  <!-- Hero section with portrait and call‑to‑action buttons -->
   <section id="hero" class="hero">
     <div class="hero-content">
       <div class="hero-img">
         <img src="profile.jpg" alt="Daniela Remenska portrait">
       </div>
       <div class="hero-text">
-        <!-- Greeting and brief introduction following the Wix template style -->
         <h1>Hello</h1>
         <h3 class="hero-subtitle">A Bit About Me</h3>
         <p class="hero-intro">I care about building software that lasts and about teams that work well together.</p>
@@ -386,13 +218,11 @@
     </div>
   </section>
 
-  <!-- About section -->
   <section id="about">
     <h2>About</h2>
-    <p>I care about building software that lasts and about teams that work well together. My path has taken me from research and scientific computing to many years of hands‑on engineering and leadership for online marketplaces. Staying long enough on the same product taught me to notice complexity before it gets out of hand and to own my mistakes. I value practical solutions, honest communication and the craft of turning ideas into real, useful tools. I am open to new roles or collaborations, especially where technology addresses societal problems. I am not looking for another fintech gig or any position where the main goal is simply to maximise shareholder value.</p>
+    <p>My path has taken me from research and scientific computing to many years of hands-on engineering and leadership for online marketplaces. Staying long enough on the same product taught me to notice complexity before it gets out of hand and to own my mistakes. I value practical solutions, honest communication and the craft of turning ideas into real, useful tools. I am open to new roles or collaborations, especially where technology addresses societal problems. I am not looking for another fintech gig or any position where the main goal is simply to maximise shareholder value.</p>
   </section>
 
-  <!-- Experience section with timeline -->
   <section id="experience">
     <h2>Experience</h2>
     <div class="timeline">
@@ -400,8 +230,8 @@
         <div class="circle"></div>
         <h3>Technical Engineering Manager | Tech Lead | Software Engineer – eBay / Adevinta / Marktplaats</h3>
         <div class="date">Nov 2016 – Present · 9 years · Amsterdam Area, Netherlands</div>
-        <p>I’ve been part of the same product and team through several company changes, from eBay Classifieds to Adevinta and now Marktplaats. We build and run a first‑party advertising platform that serves our marketplaces.</p>
-        <p>I started as a backend engineer writing Go services and grew into a tech lead and engineering manager, often wearing multiple hats at once. I’ve worked on designing and scaling our systems, improving developer practices, and leading a cross‑functional team focused on seller tools and advertising features. I am happiest working on tough technical problems, turning complex requirements into reliable software, and helping my team deliver solutions that are both practical and useful. I believe in learning from mistakes, staying hands‑on, and keeping things as clear and simple as possible. My focus has been on building and maintaining systems that actually support our users and make a difference in their experience.</p>
+        <p>I’ve been part of the same product and team through several company changes, from eBay Classifieds to Adevinta and now Marktplaats. We build and run a first-party advertising platform that serves our marketplaces.</p>
+        <p>I started as a backend engineer writing Go services and grew into a tech lead and engineering manager, often wearing multiple hats at once. I’ve worked on designing and scaling our systems, improving developer practices, and leading a cross-functional team focused on seller tools and advertising features. I am happiest working on tough technical problems, turning complex requirements into reliable software, and helping my team deliver solutions that are both practical and useful. I believe in learning from mistakes, staying hands-on, and keeping things as clear and simple as possible. My focus has been on building and maintaining systems that actually support our users and make a difference in their experience.</p>
       </div>
       <div class="timeline-item">
         <div class="circle"></div>
@@ -419,26 +249,25 @@
         <div class="circle"></div>
         <h3>Engineering Doctorate (EngD) – Eindhoven University of Technology</h3>
         <div class="date">2008 – 2010</div>
-        <p>Completed a two‑year EngD in Software Technology, combining advanced coursework with industry projects. Worked with companies such as ViNotion, FEI and NIKHEF on real‑time and data‑heavy systems. This programme reinforced my ability to translate vague requirements into working software.</p>
+        <p>Completed a two-year EngD in Software Technology, combining advanced coursework with industry projects. Worked with companies such as ViNotion, FEI and NIKHEF on real-time and data-heavy systems. This programme reinforced my ability to translate vague requirements into working software.</p>
       </div>
       <div class="timeline-item">
         <div class="circle"></div>
-        <h3>Java Software Developer – MAK‑System, Republic of North Macedonia</h3>
+        <h3>Java Software Developer – MAK-System, Republic of North Macedonia</h3>
         <div class="date">Feb 2007 – Sep 2008</div>
         <p>Developed and maintained eRiskLine using Java Servlets and JSP pages, a software solution for collecting incident and risk information in healthcare settings. This role was my first professional exposure to building and deploying software in production.</p>
       </div>
     </div>
   </section>
 
-  <!-- Research & Code section -->
   <section id="research">
     <h2>Research &amp; Code</h2>
     <p>Some highlights from my published research and open source work.</p>
     <ul>
-      <li>Research publications: I have co‑authored peer‑reviewed papers across grid computing, scientific data workflows and distributed verification. For a complete list of publications please see my <a href="https://scholar.google.com/citations?user=JGCWSdgAAAAJ&hl=en" target="_blank">Google Scholar profile</a>.</li>
+      <li>Research publications: I have co-authored peer-reviewed papers across grid computing, scientific data workflows and distributed verification. For a complete list of publications please see my <a href="https://scholar.google.com/citations?user=JGCWSdgAAAAJ&hl=en" target="_blank">Google Scholar profile</a>.</li>
       <li>Open source &amp; code: My focus on industry work has put a pause on public and open source contributions, but you can still explore work from my earlier career on my <a href="https://github.com/remenska" target="_blank">GitHub page</a>.</li>
     </ul>
   </section>
-
 </body>
 </html>
+
