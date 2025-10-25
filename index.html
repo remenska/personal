@@ -144,10 +144,18 @@
         }
       };
 
+      // Compute a human‑readable duration between two dates. This version
+      // rounds up any partial months so that spans like 1 year 4 months
+      // become 1 year 5 months and 8 years 11 months becomes 9 years.
       const diffToLabel = (start, end) => {
         if (!start || !end) return '';
+        // Calculate the number of full months between start and end
         let months = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
         if (months < 0) months = 0;
+        // If there are leftover months beyond whole years, round up by adding one
+        if (months % 12 !== 0) {
+          months += 1;
+        }
         const years = Math.floor(months / 12);
         const rem = months % 12;
         const yPart = years > 0 ? `${years} year${years === 1 ? '' : 's'}` : '';
@@ -220,7 +228,7 @@
 
   <section id="about">
     <h2>About</h2>
-    <p>My path has taken me from research and scientific computing to many years of hands-on engineering and leadership for online marketplaces. Staying long enough on the same product taught me to notice complexity before it gets out of hand and to own my mistakes. I value practical solutions, honest communication and the craft of turning ideas into real, useful tools. I am open to new roles or collaborations, especially where technology addresses societal problems. I am not looking for another fintech gig or any position where the main goal is simply to maximise shareholder value.</p>
+    <p>My path started in research and scientific computing and led me to years of hands-on engineering and leadership in online marketplaces. Working on the same product for years taught me to spot complexity early, own my mistakes and keep things simple. I love sinking my teeth into hard technical problems and turning messy requirements into software that works. I stay close to the code, learn from what goes wrong and help my team build things that actually help people. I'm open to new roles or collaborations that use technology to tackle real-world problems. I'm not interested in another fintech gig or any job where the sole aim is to maximise shareholder value.</p>
   </section>
 
   <section id="experience">
@@ -231,7 +239,7 @@
         <h3>Technical Engineering Manager | Tech Lead | Software Engineer – eBay / Adevinta / Marktplaats</h3>
         <div class="date">Nov 2016 – Present · 9 years · Amsterdam Area, Netherlands</div>
         <p>I’ve been part of the same product and team through several company changes, from eBay Classifieds to Adevinta and now Marktplaats. We build and run a first-party advertising platform that serves our marketplaces.</p>
-        <p>I started as a backend engineer writing Go services and grew into a tech lead and engineering manager, often wearing multiple hats at once. I’ve worked on designing and scaling our systems, improving developer practices, and leading a cross-functional team focused on seller tools and advertising features. I am happiest working on tough technical problems, turning complex requirements into reliable software, and helping my team deliver solutions that are both practical and useful. I believe in learning from mistakes, staying hands-on, and keeping things as clear and simple as possible. My focus has been on building and maintaining systems that actually support our users and make a difference in their experience.</p>
+        <p>I started as a backend engineer writing Go services and grew into a tech lead and engineering manager, often wearing multiple hats at once. I’ve worked on designing and scaling our systems, improving developer practices, and leading a cross‑functional team focused on seller tools and advertising features. My focus has been on building and maintaining systems that actually support our users and make a difference in their experience.</p>
       </div>
       <div class="timeline-item">
         <div class="circle"></div>
@@ -242,13 +250,13 @@
       <div class="timeline-item">
         <div class="circle"></div>
         <h3>NIKHEF &amp; Vrije Universiteit Amsterdam (VU Amsterdam)</h3>
-        <div class="date">2010 – Feb 2016</div>
+        <div class="date">Oct 2010 – Feb 2016</div>
         <p>While completing my PhD in computer science, I worked at the National Institute for Subatomic Physics (NIKHEF) developing data management and grid computing solutions for the LHCb experiment at CERN. My research focused on automating verification of distributed software designs and bridging the gap between software engineering and fundamental CS research. This period sharpened my interest in robust distributed systems.</p>
       </div>
       <div class="timeline-item">
         <div class="circle"></div>
         <h3>Engineering Doctorate (EngD) – Eindhoven University of Technology</h3>
-        <div class="date">2008 – 2010</div>
+        <div class="date">Oct 2008 – Oct 2010</div>
         <p>Completed a two-year EngD in Software Technology, combining advanced coursework with industry projects. Worked with companies such as ViNotion, FEI and NIKHEF on real-time and data-heavy systems. This programme reinforced my ability to translate vague requirements into working software.</p>
       </div>
       <div class="timeline-item">
